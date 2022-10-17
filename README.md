@@ -27,3 +27,8 @@ Follow this Android dev setup in: https://reactnative.dev/docs/environment-setup
 # Demo
 
 https://user-images.githubusercontent.com/1479283/196188664-d211a8cd-1811-4c0b-9028-20b47d9dde5e.mp4
+
+# Used libraries
+
+- [MMKV](https://github.com/mrousavy/react-native-mmkv) v2.4.3 for sync storage
+- Jotai v1.8.5
