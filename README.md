@@ -23,3 +23,7 @@ Follow this Android dev setup in: https://reactnative.dev/docs/environment-setup
 - Force close the app
 - Open the app again
 - Now all counts are 1
+
+# Demo
+
+https://user-images.githubusercontent.com/1479283/196188664-d211a8cd-1811-4c0b-9028-20b47d9dde5e.mp4
