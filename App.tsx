@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Button, Text, View} from 'react-native';
 import {atomWithStorage, createJSONStorage} from 'jotai/utils';
 import {MMKV} from 'react-native-mmkv';
@@ -17,8 +17,6 @@ import {useAtom, Provider as JotaiProvider} from 'jotai';
 const COUNT_STORAGE_KEY = 'count';
 
 export const mmkvStorage = new MMKV();
-
-console.log('Outside of App');
 
 const countAtom = atomWithStorage(
   COUNT_STORAGE_KEY,
@@ -31,19 +29,22 @@ const countAtom = atomWithStorage(
 );
 
 const App = () => {
-  console.log('Inside of App');
   return (
-    <JotaiProvider>
-      <Counter />
-    </JotaiProvider>
+    <View style={{flex: 1}}>
+      <JotaiProvider>
+        <Counter counterName="Inside Provider" />
+      </JotaiProvider>
+      <Counter counterName="Outside Provider" />
+    </View>
   );
 };
 
-const Counter = () => {
+const Counter = ({counterName}: {counterName: string}) => {
   const [count, setCount] = useAtom(countAtom);
 
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>{counterName}</Text>
       <Text>Count: {count}</Text>
       <Text>
         Count from storage: {mmkvStorage.getString(COUNT_STORAGE_KEY)}
